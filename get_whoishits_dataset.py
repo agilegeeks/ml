@@ -38,10 +38,10 @@ for opt, arg in opts:
         print ('get_whoishits_dataset.py -s <start_date> -e <end_date> -t <target> -a <api_url>')
         sys.exit()
 
-step = '15m'
+step = '30s'
 
 req = drest.request.TastyPieRequestHandler()
-req.add_param('query','increase(mdw_whois_hits{service="whois_pub"}[%s])' % step)
+req.add_param('query','increase(mdw_whois_hits{service="whois_pub"}[15m])')
 req.add_param('start', start)
 req.add_param('end',end)
 req.add_param('step',step)
